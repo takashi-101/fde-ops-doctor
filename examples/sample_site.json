@@ -1,0 +1,5 @@
+{
+  "base_dir": "site_a",
+  "required_files": ["config.json", "runbook.md", "contacts.csv"],
+  "db_path": "site_a/data/app.db"
+}
