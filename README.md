@@ -98,5 +98,12 @@ tests/                ユニットテスト
 .github/workflows/    CI（Python 3.11・3.12）
 ```
 
+## 根拠（学習）
+
+| 機能 | 裏付けになる学習（発行元・名称・発行日） | 照会先（Credly） |
+|---|---|---|
+| SQLiteファイルの整合性確認 | Amazon Web Services Training and Certification「AWS Educate Getting Started with Databases - Training Badge」2025年6月1日 | https://www.credly.com/badges/0f3404b3-6419-4d48-934f-507f0364e032 |
+| 運用環境の一次切り分け（Pythonの版・空き容量・設定ファイル） | Amazon Web Services Training and Certification「AWS Educate Getting Started with Cloud Ops - Training Badge」2025年6月1日 | https://www.credly.com/badges/872f51f0-225c-4b24-af97-298964ac2dba |
+
 ## ライセンス
 MIT
