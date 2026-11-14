@@ -1,13 +1,11 @@
 # FDE Ops Doctor（非エンジニア現場向け 環境診断・一次切り分けツール）
 
-[![tests](https://github.com/takashi-101/fde-ops-doctor/actions/workflows/tests.yml/badge.svg)](https://github.com/takashi-101/fde-ops-doctor/actions/workflows/tests.yml)
-
 FDE（顧客の現場に入り、導入を担当するエンジニア）が現場を離れた後に、引き継ぎ先の担当者が環境の異常を一次切り分けするための診断ツールです。Python のバージョン、ディスクの空き容量、必須ファイルの有無、SQLite（ファイル1つで動くデータベース）の整合性の4項目を確かめ、項目ごとの判定（OK・WARN・FAIL）と対処の一言を JSON で返します。
 
 ## 30秒で読む要点
 - **確かめるのは4項目です**：Python が 3.10 以上か、空き容量が 100 MB 以上か、指定したファイルがそろっているか、SQLite の `PRAGMA integrity_check`（SQLite に組み込まれた破損検査）が `ok` を返すか。
 - **判定は3段階です**：問題のある項目には対処の一言（`action_hint`）が付きます。全体の判定は、FAIL が1つでもあれば FAIL、FAIL が無く WARN があれば WARN、それ以外は OK です。
-- **標準ライブラリだけで動きます**：外部との通信や有料APIは使いません。テスト28件（正常・境界・異常）を、CI（GitHub Actions による自動テスト）で Python 3.11 と 3.12 で実行しています。
+- **標準ライブラリだけで動きます**：外部との通信や有料APIは使いません。テストは28件（正常・境界・異常）です。
 
 ## 見本を動かす
 ```
@@ -95,15 +93,16 @@ examples/
   sample_site.json    見本の設定ファイル
   site_a/             架空の現場フォルダ（config.json、runbook.md）
 tests/                ユニットテスト
-.github/workflows/    CI（Python 3.11・3.12）
 ```
 
 ## 根拠（学習）
 
-| 機能 | 裏付けになる学習（発行元・名称・発行日） | 照会先（Credly） |
-|---|---|---|
-| SQLiteファイルの整合性確認 | Amazon Web Services Training and Certification「AWS Educate Getting Started with Databases - Training Badge」2025年6月1日 | https://www.credly.com/badges/0f3404b3-6419-4d48-934f-507f0364e032 |
-| 運用環境の一次切り分け（Pythonの版・空き容量・設定ファイル） | Amazon Web Services Training and Certification「AWS Educate Getting Started with Cloud Ops - Training Badge」2025年6月1日 | https://www.credly.com/badges/872f51f0-225c-4b24-af97-298964ac2dba |
+| 求められる力 | 機能 | 裏付けになる学習（発行元・名称・発行日） | 照会先（Credly） |
+|---|---|---|---|
+| データ活用（Python・SQL・BI） | SQLiteファイルの整合性確認 | Amazon Web Services Training and Certification「AWS Educate Getting Started with Databases - Training Badge」2025年6月1日 | https://www.credly.com/badges/0f3404b3-6419-4d48-934f-507f0364e032 |
+| クラウドと閉域の基盤 | 運用環境の一次切り分け（Pythonの版・空き容量・設定ファイル） | Amazon Web Services Training and Certification「AWS Educate Getting Started with Cloud Ops - Training Badge」2025年6月1日 | https://www.credly.com/badges/872f51f0-225c-4b24-af97-298964ac2dba |
+
+「求められる力」の分け方は、[プロフィール](https://github.com/takashi-101) の「FDE・AXで求められる力と、その根拠」と同じです。
 
 ## ライセンス
 MIT
