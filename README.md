@@ -1,8 +1,11 @@
 # FDE Ops Doctor（非エンジニア現場向け 環境診断・一次切り分けツール）
 
+[![tests](https://github.com/takashi-101/fde-ops-doctor/actions/workflows/tests.yml/badge.svg)](https://github.com/takashi-101/fde-ops-doctor/actions/workflows/tests.yml)
+
 FDE（顧客の現場に入り、導入を担当するエンジニア）が現場を離れた後に、引き継ぎ先の担当者が環境の異常を一次切り分けするための診断ツールです。Python のバージョン、ディスクの空き容量、必須ファイルの有無、SQLite（ファイル1つで動くデータベース）の整合性の4項目を確かめ、項目ごとの判定（OK・WARN・FAIL）と対処の一言を JSON で返します。
 
 ## 30秒で読む要点
+- **なぜ作ったか**：担当者が替わっても運用が回るようにするためです。導入した人に問い合わせる前に、引き継ぎ先の担当者が最初の4項目を自分で確かめられます。
 - **確かめるのは4項目です**：Python が 3.10 以上か、空き容量が 100 MB 以上か、指定したファイルがそろっているか、SQLite の `PRAGMA integrity_check`（SQLite に組み込まれた破損検査）が `ok` を返すか。
 - **判定は3段階です**：問題のある項目には対処の一言（`action_hint`）が付きます。全体の判定は、FAIL が1つでもあれば FAIL、FAIL が無く WARN があれば WARN、それ以外は OK です。
 - **標準ライブラリだけで動きます**：外部との通信や有料APIは使いません。テストは28件（正常・境界・異常）です。
